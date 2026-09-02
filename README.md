@@ -1,28 +1,24 @@
-# 🧵 Industrial Fabric Quality Inspection & Prediction
-### **Machine Learning Practical Assignment: Data Preprocessing & Feature Selection**
+# Machine Learning Practical Assignment
+## Industrial Fabric Quality Inspection and Classification
 
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-Complete-success.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
----
-
-## 📌 1. Project Title
-**Industrial Fabric Quality Inspection and Prediction: From Theory to Implementation**
-
-## 📖 2. Problem Statement
-In industrial textile manufacturing, real-time quality grading of fabric rolls is vital to prevent defect propagation, minimize material waste, and guarantee compliance with tensile and durability specifications. Traditional manual fabric auditing is slow, subjective, and prone to inspector fatigue.
-
-This project implements an end-to-end, leak-free Machine Learning preprocessing and feature selection pipeline from scratch to automatically classify industrial fabric quality into **High**, **Medium**, and **Low** grades based on physical, sensory, and manufacturing parameters.
+**Department of Computer Science & Engineering**  
+**UIET, Chhatrapati Shahu Ji Maharaj University (CSJMU), Kanpur**  
 
 ---
 
-## 👥 3. Team Details
+### Project Overview
 
-- **Team Name:** `ANOVA Squad`
-- **College / University:** `UIET, CSJMU Kanpur`
-- **Branch:** `B.Tech CSE`
-- **Year & Semester:** `4th Year (7th Semester)`
+In this practical assignment, we worked on the **Industrial Fabric Quality Inspection Dataset** to analyze, preprocess, and select the most relevant features for classifying fabric rolls into three quality grades: **High**, **Medium**, and **Low**.
+
+The main objective of the assignment was to implement all major preprocessing and feature selection techniques **from scratch using mathematical formulas in Python**, and then verify our manual calculations against standard libraries (`scipy`, `sklearn`, `numpy`).
+
+---
+
+### Team Details: ANOVA Squad
+
+- **Institution:** UIET, CSJMU Kanpur
+- **Branch:** B.Tech Computer Science & Engineering
+- **Year & Semester:** 4th Year, 7th Semester
 
 | S.No | Student Name | University Roll Number | Email Address |
 | :---: | :--- | :---: | :--- |
@@ -33,135 +29,92 @@ This project implements an end-to-end, leak-free Machine Learning preprocessing 
 
 ---
 
-## 📊 4. Dataset Description
-- **Dataset File:** `Industrial Fabric Quality Inspection Dataset.csv`
-- **Total Records:** `25,750 rows` (Cleaned: `25,000 unique records`)
-- **Total Features:** `23 Columns`
+### Dataset Summary
+
+- **File Name:** `Industrial Fabric Quality Inspection Dataset.csv`
+- **Total Records:** 25,750 rows (Raw) | 24,969 rows (Cleaned & Treated)
+- **Total Features:** 23 columns (22 input features + 1 target variable)
 - **Target Variable:** `fabric_quality` (`High`, `Medium`, `Low`)
-- **Data Attributes:**
-  - *Continuous Numerical:* `tensile_strength`, `gsm`, `fabric_thickness`, `shrinkage_percent`, `elongation_percent`, `moisture_absorption`, `thread_count`, `machine_temperature`, `humidity_level`, `inspection_time_minutes`.
-  - *Discrete Numerical:* `color_fastness` (1-5 rating), `defect_count` (0-14 count).
-  - *Nominal Categorical:* `fabric_type`, `weave_type`, `finish_type`, `production_method`, `warehouse_id`, `inspection_shift`.
-  - *Metadata/IDs:* `batch_id`, `roll_number`, `operator_name`, `inspection_notes`.
+- **Feature Types:**
+  - *Numerical Features (12):* `tensile_strength`, `gsm`, `fabric_thickness`, `shrinkage_percent`, `elongation_percent`, `moisture_absorption`, `thread_count`, `machine_temperature`, `humidity_level`, `inspection_time_minutes`, `color_fastness`, `defect_count`
+  - *Categorical Features (6):* `fabric_type`, `weave_type`, `finish_type`, `production_method`, `warehouse_id`, `inspection_shift`
+  - *Identifier / Metadata Columns (4):* `batch_id`, `roll_number`, `operator_name`, `inspection_notes`
 
 ---
 
-## 🌐 5. Dataset Source
-- **Source:** Industrial Fabric Quality Inspection Dataset (Internal Manufacturing Audit Records)
-- **Path in Repo:** [`Industrial Fabric Quality Inspection Dataset.csv`](Industrial%20Fabric%20Quality%20Inspection%20Dataset.csv)
+### Key Preprocessing & Feature Selection Steps Implemented
+
+The completed notebook (`NEW_ML_project.ipynb`) contains 28 sequential steps implemented according to the practical assignment guidelines:
+
+1. **Exploratory Data Analysis (EDA):** Inspected dataset shapes, data types, missing value percentages, and distributions for numerical features.
+2. **Missing Value Treatment:** Implemented median imputation for skewed/continuous numerical features and mode imputation for categorical attributes.
+3. **Duplicate Record Cleaning:** Detected and removed 750 duplicate entries while preserving first valid instances.
+4. **Categorical Data Standardization:** Cleaned extraneous whitespaces, fixed inconsistent string casing, and handled invalid/unknown placeholder codes.
+5. **Categorical Encoding:** Built manual Label Encoding for binary/ordinal categories and One-Hot Encoding for nominal variables.
+6. **Outlier Detection & Capping:** Identified outliers using both the 1.5 × IQR rule and the |Z| > 3 method, and applied capping (Winsorization) to avoid data loss.
+7. **Transformation & Feature Scaling:** Checked skewness of numerical variables; implemented Min-Max Normalization ([0, 1]) and Z-score Standardization ($\mu=0, \sigma=1$) from scratch.
+8. **Train-Test Split (80/20):** Shuffled indices randomly and partitioned data into 19,975 training rows (80%) and 4,994 test rows (20%) without using external libraries.
+9. **Data Leakage Prevention:** Ensured that all preprocessing parameters (means, standard deviations, mins, maxes, medians) were learned strictly on `X_train` and frozen before transforming `X_test`.
+10. **Statistical Feature Selection (From Scratch):**
+    - *Variance Threshold:* Calculated $\text{Var}(X) = \frac{1}{n}\sum(x_i - \bar{x})^2$ to filter out constant/near-zero variance features.
+    - *Pearson Correlation:* Computed linear feature-target correlations and checked the feature-feature correlation matrix for multicollinearity.
+    - *Chi-Square Test ($\chi^2$):* Constructed observed/expected contingency tables from scratch and calculated $\chi^2$ statistics and degrees of freedom for categorical predictors.
+    - *ANOVA F-Test:* Calculated Between-Group Variance (MSB) and Within-Group Variance (MSW) to test whether continuous feature means differ across quality grades.
+    - *Mutual Information:* Implemented Shannon Entropy $H(Y)$, Conditional Entropy $H(Y|X)$, and Information Gain in bits to capture non-linear dependencies.
+11. **Library Verification:** Verified all manual from-scratch calculations against `scipy.stats` and `scikit-learn` (confirmed 100% numerical parity).
 
 ---
 
-## ⚙️ 6. Preprocessing Techniques Implemented
+### Feature Selection Decisions
 
-1. **Initial Exploratory Data Analysis (EDA):** Central tendency, dispersion, and distribution histograms for all 12 numerical features.
-2. **Missing Value Handling:** Missing % calculation + From-scratch **Median Imputation** for numerical features and **Mode Imputation** for categorical attributes.
-3. **Duplicate Record Cleaning:** Identification and removal of 750 duplicate rows (keeping first occurrence).
-4. **Invalid & Negative Data Cleaning:** Detection of 24 impossible negative sensor values (e.g. negative tensile strength) and replacement with valid positive feature medians; removal of categorical whitespace and casing inconsistencies.
-5. **Categorical Encoding:**
-   - **Label Encoding:** Ordinal mapping for target variable (`Low: 0, Medium: 1, High: 2`).
-   - **One-Hot Encoding:** Binary dummy indicator creation from scratch for nominal categories.
-6. **Outlier Detection & Treatment:**
-   - **IQR Method:** $Q_1 - 1.5\text{IQR}$ and $Q_3 + 1.5\text{IQR}$ thresholds.
-   - **Z-Score Method:** $|Z| > 3$ threshold.
-   - **Capping (Winsorization):** Extreme outliers clipped at boundary limits to retain data volume without destabilizing training.
-7. **Feature Scaling:** From-scratch **Min-Max Normalization** ($[0, 1]$) and **Standardization** ($Z$-score $\mu=0, \sigma=1$).
-8. **Train-Test Split & Data Leakage Prevention:** 80/20 train-test partition with parameters learned strictly on the training set and applied to the test set.
+Based on statistical testing and textile manufacturing domain requirements, features were categorized as follows:
 
----
+#### Retained Features (13 Core Predictors)
+- **Mechanical & Physical Strength:** `tensile_strength`, `gsm`, `fabric_thickness`, `elongation_percent`, `shrinkage_percent`, `thread_count`, `moisture_absorption`
+- **Quality & Flaw Ratings:** `defect_count`, `color_fastness`
+- **Manufacturing Specifications:** `fabric_type`, `weave_type`, `finish_type`, `production_method`
 
-## 🎯 7. Feature-Selection Techniques Implemented
-
-| Technique | Feature Type | Target Type | Mathematical Criterion | Role / Purpose |
-| :--- | :--- | :--- | :--- | :--- |
-| **Variance Threshold** | Numerical | Unsupervised | $\text{Var}(X) = \frac{1}{n}\sum(x_i - \bar{x})^2 > \theta$ | Eliminates constant/quasi-constant variables. |
-| **Pearson Correlation** | Numerical | Numerical | $r = \frac{\sum(x-\bar{x})(y-\bar{y})}{\sqrt{\sum(x-\bar{x})^2\sum(y-\bar{y})^2}}$ | Removes redundant multicollinear features ($|r| > 0.85$). |
-| **Chi-Square Test ($\chi^2$)** | Categorical | Categorical | $\chi^2 = \sum \frac{(O - E)^2}{E}$ | Assesses statistical dependence between categorical inputs & quality grade. |
-| **ANOVA F-Test** | Numerical | Categorical | $F = \frac{\text{MS}_{\text{between}}}{\text{MS}_{\text{within}}}$ | Tests whether mean physical feature values differ significantly across quality classes. |
-| **Mutual Information** | Discrete/Binned | Categorical | $\text{MI}(X; Y) = H(Y) - H(Y\|X)$ | Measures non-linear shared entropy & information gain in bits. |
+#### Removed Features (9 Columns)
+- `batch_id` & `roll_number`: Arbitrary identifiers that lead to model memorization and overfitting.
+- `operator_name`: Auditor identity introduces personal bias without any generalizable predictive signal.
+- `warehouse_id`: Storage location has no physical relationship to fabric quality.
+- `inspection_notes`: Post-inspection audit remarks cause target leakage.
+- `inspection_time_minutes`, `machine_temperature`, `humidity_level`, `inspection_shift`: Showed negligible statistical correlation / low F-statistics with the target quality class.
 
 ---
 
-## 🧮 8. From-Scratch Implementations & Verification
+### How to Run the Project
 
-Every core statistical computation was implemented using base Python, loops, and NumPy matrices before being verified against Scikit-Learn / SciPy:
-- [x] Basic Statistics (`Mean`, `Median`, `Mode`, `Variance`, `Std`, `Range`)
-- [x] Imputation logic (Median / Mode)
-- [x] One-Hot & Label Encoders
-- [x] IQR & Z-score Outlier Detectors
-- [x] Min-Max Scaler & Standard Scaler
-- [x] Train-Test Split with Random Shuffling
-- [x] Variance Threshold, ANOVA F-statistic, & Mutual Information Entropy
+#### Running in Google Colab:
+1. Open Google Colab and upload `NEW_ML_project.ipynb` (or open directly from GitHub).
+2. Upload `Industrial Fabric Quality Inspection Dataset.csv` into the session storage.
+3. The first cell contains an automatic path detector that locates the dataset automatically.
+4. Go to **Runtime -> Run all** (`Ctrl + F9`). All 98 cells will execute sequentially with all tables and plots generated.
 
----
-
-## 🏆 9. Results & Model Validation
-
-Comparison of Decision Tree Classifier trained on All Features vs Selected Features Subset:
-
-| Parameter | Model A (All 23 Features) | Model B (Selected 6 Features) | Engineering Advantage |
-| :--- | :---: | :---: | :--- |
-| **Dimensionality** | 23 Features | **6 Core Features** | **74% Feature Reduction** |
-| **Training Time** | 0.0482 s | **0.0118 s** | **4x Faster Inference & Training** |
-| **Test Accuracy** | 94.80% | **95.20%** | Maintained & slightly enhanced generalizability |
-| **Interpretability** | Low (Dense tree) | **High (Auditable rules)** | Clear operational rules for factory floor |
-
----
-
-## 📌 10. Selected Features
-
-The following 6 features were retained based on strong statistical significance:
-1. `tensile_strength` (ANOVA F-statistic: High)
-2. `gsm` (ANOVA F-statistic: High)
-3. `fabric_thickness` (ANOVA F-statistic: Medium)
-4. `defect_count` (Mutual Information: 0.42 bits)
-5. `color_fastness` (Chi-Square: Significant)
-6. `shrinkage_percent` (ANOVA F-statistic: Medium)
-
-**Removed Features:** `batch_id` (Overfitting ID), `roll_number` (Counter ID), `operator_name` (Zero generalization), `inspection_notes` (Direct target leakage).
-
----
-
-## 💡 11. Key Findings
-
-1. **Physical properties dominate quality:** Tensile breaking force, fabric weight (GSM), and physical defect count account for over 85% of predictive information.
-2. **Preventing Data Leakage is critical:** Preprocessing on the full dataset before splitting falsely boosts evaluation metrics by up to 4-6%; splitting first ensures true real-world generalizability.
-3. **Outlier Capping outperforms Dropping:** Capping preserves sample integrity while mitigating gradient volatility.
-
----
-
-## 🚀 12. Instructions to Run the Code
-
-### Method 1: Google Colab
-1. Open [Google Colab](https://colab.research.google.com).
-2. Upload [`NEW_ML_project.ipynb`](NEW_ML_project.ipynb) via `File ➔ Upload notebook`.
-3. Upload [`Industrial Fabric Quality Inspection Dataset.csv`](Industrial%20Fabric%20Quality%20Inspection%20Dataset.csv) in the session files.
-4. Click `Runtime ➔ Run all`.
-
-### Method 2: Local Jupyter Notebook
+#### Running Locally:
 ```bash
 # Clone the repository
 git clone https://github.com/YashCube-x/Alok_sir_ML-project.git
 cd Alok_sir_ML-project
 
-# Launch Jupyter
+# Launch Jupyter Notebook
 jupyter notebook NEW_ML_project.ipynb
 ```
 
 ---
 
-## 📂 Repository Structure
+### Repository Structure
 
 ```
 Alok_sir_ML-project/
 │
-├── README.md                                          # Clean project overview and documentation
-├── NEW_ML_project.ipynb                               # Master Executed Jupyter Notebook (with all outputs)
-├── Industrial Fabric Quality Inspection Dataset.csv   # Dataset with injected real-world anomalies
+├── README.md                                          # Project documentation and team details
+├── NEW_ML_project.ipynb                               # Master executed Jupyter Notebook (with all outputs)
+├── Industrial Fabric Quality Inspection Dataset.csv   # Dataset file
 │
 ├── dataset/
-│   └── Industrial Fabric Quality Inspection Dataset.csv  # Direct Raw Dataset Link
+│   └── Industrial Fabric Quality Inspection Dataset.csv  # Direct dataset link
 │
 └── notebooks/
-    └── NEW_ML_project.ipynb                           # Direct Notebook Link
+    └── NEW_ML_project.ipynb                           # Direct notebook link
 ```
