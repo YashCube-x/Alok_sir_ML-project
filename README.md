@@ -17,16 +17,19 @@ This project implements an end-to-end, leak-free Machine Learning preprocessing 
 
 ---
 
-## 👥 3. Team Details & Module Contributions
+## 👥 3. Team Details
 
-**Team Name:** **`ANOVA Squad`**
+- **Team Name:** `ANOVA Squad`
+- **College / University:** `UIET, CSJMU Kanpur`
+- **Branch:** `B.Tech CSE`
+- **Year & Semester:** `4th Year (7th Semester)`
 
-| S.No | Student Name | University Roll Number | Email Address | Assigned Module / Task Contribution |
-| :---: | :--- | :---: | :--- | :--- |
-| 1 | **Suyash Prakash** (Team Lead) | `CSJMA23001390046` | `yashcube07@gmail.com` | Project Architecture, Data Quality Audit, Duplicate & Outlier Handling, Pipeline Orchestration |
-| 2 | **Monika Singh** | `CSJMA23001390023` | `monikasingh20032110@gmail.com` | Categorical Data Cleaning, Mode Imputation, Variance Threshold & Skewness Analysis |
-| 3 | **Nikhilesh Gond** | `CSJMA23001390027` | `ngond7062@gmail.com` | Feature Scaling (Min-Max & Standardization), Leakage-Free Train-Test Partitioning |
-| 4 | **Md. Ahmad Raza** | `CSJMA23001390022` | *[Pending Email]* | Statistical Feature Selection from Scratch (ANOVA F-Test, Chi-Square, Mutual Information) |
+| S.No | Student Name | University Roll Number | Email Address |
+| :---: | :--- | :---: | :--- |
+| 1 | **Suyash Prakash** | `CSJMA23001390046` | `yashcube07@gmail.com` |
+| 2 | **Monika Singh** | `CSJMA23001390023` | `monikasingh20032110@gmail.com` |
+| 3 | **Nikhilesh Gond** | `CSJMA23001390027` | `ngond7062@gmail.com` |
+| 4 | **Md. Ahmad Raza** | `CSJMA23001390022` | - |
 
 ---
 
