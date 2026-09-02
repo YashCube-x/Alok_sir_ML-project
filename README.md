@@ -29,7 +29,7 @@ This project implements an end-to-end, leak-free Machine Learning preprocessing 
 | 1 | **Suyash Prakash** | `CSJMA23001390046` | `yashcube07@gmail.com` |
 | 2 | **Monika Singh** | `CSJMA23001390023` | `monikasingh20032110@gmail.com` |
 | 3 | **Nikhilesh Gond** | `CSJMA23001390027` | `ngond7062@gmail.com` |
-| 4 | **Md. Ahmad Raza** | `CSJMA23001390022` | - |
+| 4 | **Md. Ahmad Raza** | `CSJMA23001390022` | `Ahmadrzaa45@gmail.com` |
 
 ---
 
