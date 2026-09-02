@@ -43,8 +43,7 @@ This project implements an end-to-end, leak-free Machine Learning preprocessing 
 
 ## 🌐 5. Dataset Source
 - **Source:** Industrial Fabric Quality Inspection Dataset (Internal Manufacturing Audit Records)
-- **Format:** CSV (Comma-Separated Values)
-- **Path in Repo:** [`dataset/Industrial Fabric Quality Inspection Dataset.csv`](dataset/Industrial%20Fabric%20Quality%20Inspection%20Dataset.csv)
+- **Path in Repo:** [`Industrial Fabric Quality Inspection Dataset.csv`](Industrial%20Fabric%20Quality%20Inspection%20Dataset.csv)
 
 ---
 
@@ -151,23 +150,7 @@ jupyter notebook NEW_ML_project.ipynb
 ```
 Alok_sir_ML-project/
 │
-├── README.md                                          # Project overview and documentation
-├── NEW_ML_project.ipynb                               # Master Executed Jupyter Notebook
-├── Industrial Fabric Quality Inspection Dataset.csv   # Dataset with injected real-world anomalies
-├── ML_Project_Comprehensive_Guide.pdf                 # In-depth 13-page technical report
-│
-├── dataset/
-│   └── Industrial Fabric Quality Inspection Dataset.csv
-│
-├── notebooks/
-│   └── NEW_ML_project.ipynb
-│
-└── report/
-    └── final_summary.pdf
+├── README.md                                          # Clean project overview and documentation
+├── NEW_ML_project.ipynb                               # Master Executed Jupyter Notebook (with all outputs)
+└── Industrial Fabric Quality Inspection Dataset.csv   # Dataset with injected real-world anomalies
 ```
-
----
-
-## 📄 Documentation & PDF Report
-For the complete 13-page technical documentation explaining every formula, rationale, and real-world example, see:  
-📑 [**ML_Project_Comprehensive_Guide.pdf**](ML_Project_Comprehensive_Guide.pdf) / [**report/final_summary.pdf**](report/final_summary.pdf)
