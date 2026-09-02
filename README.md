@@ -17,14 +17,16 @@ This project implements an end-to-end, leak-free Machine Learning preprocessing 
 
 ---
 
-## 👥 3. Group Members & Module Contributions
+## 👥 3. Team Details & Module Contributions
 
-| Student Name | Roll Number | Module / Task Contribution |
-| :--- | :---: | :--- |
-| **Yash / Team Lead** | 2026-ML-001 | Problem Definition, Data Quality Audit, Duplicate & Negative Value Cleaning |
-| **Team Member 2** | 2026-ML-002 | Categorical Encoding, Outlier Detection (IQR / Z-Score) & Winsorization Capping |
-| **Team Member 3** | 2026-ML-003 | Feature Scaling (Min-Max/Standardization), Skewness Transformation & Leakage-Free Split |
-| **Team Member 4** | 2026-ML-004 | Feature Selection from Scratch (Variance, ANOVA, Chi-Sq, MI) & Model Validation |
+**Team Name:** **`ANOVA Squad`**
+
+| S.No | Student Name | University Roll Number | Email Address | Assigned Module / Task Contribution |
+| :---: | :--- | :---: | :--- | :--- |
+| 1 | **Suyash Prakash** (Team Lead) | `CSJMA23001390046` | `yashcube07@gmail.com` | Project Architecture, Data Quality Audit, Duplicate & Outlier Handling, Pipeline Orchestration |
+| 2 | **Monika Singh** | `CSJMA23001390023` | `monikasingh20032110@gmail.com` | Categorical Data Cleaning, Mode Imputation, Variance Threshold & Skewness Analysis |
+| 3 | **Nikhilesh Gond** | `CSJMA23001390027` | `ngond7062@gmail.com` | Feature Scaling (Min-Max & Standardization), Leakage-Free Train-Test Partitioning |
+| 4 | **Md. Ahmad Raza** | `CSJMA23001390022` | *[Pending Email]* | Statistical Feature Selection from Scratch (ANOVA F-Test, Chi-Square, Mutual Information) |
 
 ---
 
