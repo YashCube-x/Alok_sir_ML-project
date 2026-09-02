@@ -14,7 +14,7 @@ The main objective of the assignment was to implement all major preprocessing an
 
 ---
 
-### Team Details: ANOVA Squad
+### Team Details: Outlier Squad
 
 - **Institution:** UIET, CSJMU Kanpur
 - **Branch:** B.Tech Computer Science & Engineering
