@@ -152,5 +152,11 @@ Alok_sir_ML-project/
 │
 ├── README.md                                          # Clean project overview and documentation
 ├── NEW_ML_project.ipynb                               # Master Executed Jupyter Notebook (with all outputs)
-└── Industrial Fabric Quality Inspection Dataset.csv   # Dataset with injected real-world anomalies
+├── Industrial Fabric Quality Inspection Dataset.csv   # Dataset with injected real-world anomalies
+│
+├── dataset/
+│   └── Industrial Fabric Quality Inspection Dataset.csv  # Direct Raw Dataset Link
+│
+└── notebooks/
+    └── NEW_ML_project.ipynb                           # Direct Notebook Link
 ```
